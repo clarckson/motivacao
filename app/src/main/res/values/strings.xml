@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Motivação</string>
+    <string name="ola_usuario">Olá %1$s.</string>
 </resources>
