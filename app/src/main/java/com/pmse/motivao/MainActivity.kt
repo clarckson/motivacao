@@ -1,5 +1,6 @@
 package com.pmse.motivao
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.imageView1 .setOnClickListener(this)
         binding.imageView2.setOnClickListener(this)
         binding.imageView3.setOnClickListener(this)
+        binding.textView2.setOnClickListener(this)
 
         // Escondendo a barra de navegação - Nome da Aplicação
         supportActionBar?.hide()
@@ -35,6 +37,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mudaCores(R.id.imageView1)
 
     }
+
+
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
 
     private fun handleUserName() {
         val nome = SalvaPreferencias(this).recuperaNome(MotivacaoKeys.KEYS.USER_NAME)
@@ -48,6 +71,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //            println("Fui clicado")
         } else if (v.id in listOf(R.id.imageView1, R.id.imageView2, R.id.imageView3 )) {
             mudaCores(v.id)
+        } else if (v.id == R.id.textView2){
+            SalvaPreferencias(this).limpaNome(MotivacaoKeys.KEYS.USER_NAME)
+            startActivity(Intent(this, UserActivity::class.java))
+            finish()
         }
     }
 

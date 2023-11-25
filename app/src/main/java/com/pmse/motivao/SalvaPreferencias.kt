@@ -15,4 +15,8 @@ class SalvaPreferencias(context: Context) {
     fun recuperaNome(key: String): String {
         return seguranca.getString(key, "")  ?: ""
     }
+
+    fun limpaNome(key: String){
+        seguranca.edit().putString(key, "").apply()
+    }
 }
